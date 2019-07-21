@@ -15,6 +15,7 @@ var arrOfObj1 = [
   { e: 3 }
 ]
 
+
 Ex: addKeyPowerIndex(arrOfObj1)
 => [
   {0: 0, a: 12},
@@ -24,7 +25,7 @@ Ex: addKeyPowerIndex(arrOfObj1)
   {4: 16, e: 3}
 ] 
 
-var arrOfObj2 = [
+var arr = [
   { a: 'cat' },
   { b: 'dog' },
   { c: 'duck' }
@@ -38,41 +39,48 @@ Ex: addKeyPowerIndex(arrOfObj2)
 ]   
 */
 
-function addKeyPowerIndex() {
-  // WRITE YOUR CODE UNDER THIS LINE  
+var arr = [
+  { a: 'cat' },
+  { b: 'dog' },
+  { c: 'duck' }
+]
 
+function addKeyPowerIndex(arr) {
+  var i = 0;
+  arr.forEach((x) => {
+    x[i] = i ** 2
+    i++
+  });
+
+  return arr
 }
-
-
-
-
-
 
 
 /* Q2:
 Usind Map
 Create a function called decreseBy
-that takes an array of numbers and number as a parameter
+that t akes anarray of numbers and number as a parameter
 and return a new array after will decrease this number 
 from each element in this array
 
-var arrOfNum1 = [77,5,33]
-Ex: decreseBy(arrOfnum1,10)
+Ex: decreseBy(arrOfNum1,10)
 => [67,-5,23]
 
 Ex: decreseBy(arrOfNum1,-6)
 => [83, 11, 39]
 */
+var arrOfNum1 = [77, 5, 33]
 
-function decreseBy() {
-  // WRITE YOUR CODE UNDER THIS LINE 
+function decreseBy(arr, num) {
+  var out = []
 
+  out = arr.map(x => {
+    x -= num
+    return x
+  });
+
+  return out
 }
-
-
-
-
-
 
 /* Q3:
 Using Filter
@@ -96,22 +104,28 @@ Ex: nameLongerThan(arrOfObj4,4)
   { name: "elizabeth"}
 ]
 
-Ex: nameLongerThan(arrOfObj4,6)
+Ex: nameLongerThan(arrOfObj3,6)
 =>[
   { name: "elizabeth"}
 ]
 */
 
-function nameLongerThan() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+var arrOfObj3 = [
+  { name: "alex" },
+  { name: "mercer" },
+  { name: "alice" },
+  { name: "zaheer" },
+  { name: "elizabeth" }]
+
+function nameLongerThan(arr, num) {
+  var out = []
+
+  out = arr.filter(x => {
+    return x.name.length > num
+  });
+
+  return out
 }
-
-
-
-
-
-
-
 
 /* Q4:
 Using Reduce
@@ -133,9 +147,16 @@ Ex: avgLength(arrOfObj4,"food")
 => 6.8
 */
 
-function avgLength() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+var arrOfObj4 = [
+  { name: "alex", food: "fried chiken" },
+  { name: "mercer", food: "pizaa" },
+  { name: "alice", food: "burger" },
+  { name: "zaheer", food: "hot dog" },
+  { name: "elizabeth", food: "eggs" }
+]
 
+function avgLength(arr, k) {
+  var out = 0;
+  out = arr.reduce((acc, x) => { return acc + (x[k].length) / arr.length }, 0);
+  return out
 }
-
-// Good luck :)
